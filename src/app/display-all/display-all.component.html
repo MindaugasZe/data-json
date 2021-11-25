@@ -1,0 +1,27 @@
+<div>
+  <div class="hero">
+    <div class="container">
+      <div class="card">
+        <ul
+          *ngFor="
+            let item of items
+              | paginate
+                : {
+                    itemsPerPage: 20,
+                    currentPage: page,
+                    totalItems: totalLenght
+                  }" >
+          <li>
+            <a routerLink="/details" (click)="displayDetail(item)">
+              {{ item.id }}. {{ item.title }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <pagination-controls
+    class="text-center my-pagination"
+    (pageChange)="page = $event"
+  ></pagination-controls>
+</div>
