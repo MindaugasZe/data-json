@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from './../services/api.service';
 import { DataService } from './../services/data.service';
 
 @Component({
@@ -12,10 +11,8 @@ export class DisplayAllComponent implements OnInit {
 
 
   constructor(
-    public api: ApiService,
     public dataService: DataService,
     public router: Router,
-
   ) { }
 
   totalLenght!: number;
@@ -28,7 +25,7 @@ export class DisplayAllComponent implements OnInit {
   }
 
   loadTitle() {
-    this.api
+    this.dataService
       .get('/posts/')
       .subscribe((item: any) => (this.items = item));
     this.totalLenght = this.items.lenght;
@@ -37,7 +34,6 @@ export class DisplayAllComponent implements OnInit {
 
   displayDetail(item: any) {
     this.dataService.itemDetail = item;
-    console.log(item);
 
   }
 

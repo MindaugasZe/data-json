@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { ApiService } from './../services/api.service';
 
 @Component({
   selector: 'app-details',
@@ -17,5 +16,5 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
